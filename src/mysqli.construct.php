@@ -1,8 +1,8 @@
 <?php
 $host = 'localhost';
-$username = 'USERNAME';
-$password = "PASSWORT";
-$database = 'DATABASENAME';
+$username = 'root';
+$password = "";
+$database = 'homeplanning';
 $mysqliObject = new mysqli($host, $username, $password);
 if (mysqli_connect_errno())
 {
@@ -24,6 +24,7 @@ if ($result)
 {
     $return = $result->fetch_assoc();
 
+    print_r($return);
     // MySQL-Version aus dem Rückgabe-Array auslesen
     echo "We are working with MySQL version {$return['version']}";
 } else {
