@@ -1,36 +1,40 @@
 <?php
-$host = 'localhost';
-$username = 'root';
-$password = "";
-$database = 'homeplanning';
-$mysqliObject = new mysqli($host, $username, $password);
-if (mysqli_connect_errno())
-{
-    echo('Can\'t reach database. The following error occurred: "' . mysqli_connect_errno() . ' : ' . mysqli_connect_error() . '"');
-}
-// Select Database
-$selected = $mysqliObject->select_db($database);
-if (!$selected)
-{
-    die('Can\'t open database "'.$database.'". Are you sure it exists? ');
-}
-// Choose UTF-8 encoding
-$mysqliObject->query("SET NAMES 'utf8'");
 
-// TODO: Here you need to insert your query...
-$sql = "SELECT version() AS version";
-$result = $mysqliObject->query($sql);
-if ($result)
-{
-    $return = $result->fetch_assoc();
+Class db_connect{
+    /* Database connection start */
+    protected $servername = 'localhost';
+    protected $username = 'root';
+    protected $password = "";
+    protected $dbname = 'homeplanning';
+    protected $conn;
+     function __construct()  {
+        $con = mysqli_connect($this->servername, $this->username, $this->password, $this->dbname) or die("Connection failed: " . mysqli_connect_error());
 
-    print_r($return);
-    // MySQL-Version aus dem Rückgabe-Array auslesen
-    echo "We are working with MySQL version {$return['version']}";
+        /* check connection */
+        if (mysqli_connect_errno()) {
+            printf("Connect failed: %s\n", mysqli_connect_error());
+            exit();
+        } else {
+            $this->conn = $con;
+        }
+        return $this->conn;
+    }
+}
+$db = new db_connect();
+$sql = "SELECT id FROM  users";
+if (mysqli_query($db, $sql)) {
 } else {
-    die('The following error occurred: "'.$sql.'"');
+    echo "ERROR: Could not able to execute $sql. " . mysqli_error($db);
 }
-// Close the database connection
-$mysqliObject->close();
+foreach ($db->query($sql) as $row) {
+    $userId = $row['id'];
+    $sql = "select * from users where id = " . $userId;
+    mysqli_set_charset($db, "utf8");
+    if (mysqli_query($db, $sql)) {
+        foreach ($db->query($sql) as $row1) {
+        }
+        echo $row1['name'];
 
+    }
+}
 ?>
