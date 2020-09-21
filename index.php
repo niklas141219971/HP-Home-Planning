@@ -1,6 +1,8 @@
 <?php
-    require_once('header.php');
+    require_once('src/header.php');
 ?>
+<script src="src/javascript/home.js"></script>
+
 <div class="jumbotron">
     <main>
         <article>
@@ -11,5 +13,5 @@
     </main>
 </div>
 <?php
-    require_once('footer.php');
+    require_once('src/footer.php');
 ?>
