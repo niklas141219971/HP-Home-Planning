@@ -20,13 +20,13 @@
             <div class="collapse navbar-collapse" id="navbarNavDropdown">
                 <ul class="navbar-nav">
                     <li class="nav-item active">
-                        <a class="nav-item nav-link active" href="index.php">Home</a>
+                        <a class="nav-item nav-link active" onclick="homesite()" href="#">home</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-item nav-link" onclick="showCompany()" href="#">service companies</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-item nav-link" onclick="showCompany()" href="#">service companies</a>
+                        <a class="nav-item nav-link" onclick="createForm()" href="#">create</a>
                     </li>
                 </ul>
             </div>

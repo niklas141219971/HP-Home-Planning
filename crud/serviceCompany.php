@@ -28,6 +28,25 @@ function read(){
     return json_encode($data);
 
 }
+    function create($service_company_name, $phone_nr, $email, $description)
+    {
+        $coun = new db_connect();
+        $db = $coun->getConnstring();
+        // prepare and bind
+        $stmt = $db->prepare("INSERT INTO `service_company`(`service_company_name`, `phone_nr`, `email`, `description`) VALUES (?,?,?,?)");
+        $stmt->bind_param("ssss", $service_company_name, $phone_nr, $email,$description );
+//        mysqli_set_charset($db, "utf8");
+        $stmt->execute();
+        echo "New records created successfully";
+
+        $stmt->close();
+        $db->close();
+    }
 }
 $serviceCompany = new serviceCompany();
- echo $serviceCompany->read();
+echo $serviceCompany->read();
+if(isset($_POST['createCommpany']))
+{
+    $serviceCompany->create($_POST["name"],$_POST["phone_number"],$_POST["email"],$_POST["description"]);
+//    echo '<script type="text/javascript">window.location.href = "../src/index.php";</script>';
+}
