@@ -1,0 +1,17 @@
+body {
+    padding-top: 70px;
+  }
+  @media (max-width: 979px) {
+    body {
+      padding-top: 175px;
+    }
+}
+
+.navbar .navbar-nav .dropdown{
+    float: right;
+}
+
+.signup-container{
+    align-items: center;
+    text-align: center;
+}
