@@ -17,6 +17,6 @@ function showCompany() {
         document.getElementById('company').innerHTML =content;
         content="";
     };
-    xhttp.open("GET", "../database/mysqli.construct.php", true);
+    xhttp.open("GET", "../crud/serviceCompany.php", true);
     xhttp.send();
 }
