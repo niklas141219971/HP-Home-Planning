@@ -12,15 +12,26 @@
 
 <body>
     <header>
-        <nav class="navbar navbar-dark bg-dark navbar-expand-md fixed-top">
-            <a class="navbar-brand" href="index.php">
-                <img src="logo.png" class="rounded" alt="logo" width ="80">
-            </a>
-            <div class="navbar-nav">
-                <a class="nav-item nav-link active" href="index.php">Home</a>
-                <a class="nav-item nav-link" href="#">Placeholder</a>
-                <a class="nav-item nav-link" onclick="showCompany()" href="#">service companies</a>
-                <a class="nav-item nav-link navitem-right" href="#">Signup</a>        
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="index.php"> <img src="logo.png" class="rounded" alt="logo" width ="80"></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav">
+                    <li class="nav-item active">
+                        <a class="nav-item nav-link active" href="index.php">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-item nav-link" onclick="showCompany()" href="#">service companies</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-item nav-link" onclick="showCompany()" href="#">service companies</a>
+                    </li>
+                </ul>
             </div>
         </nav>
+
+
+
     </header>
